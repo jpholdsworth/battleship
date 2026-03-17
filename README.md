@@ -57,12 +57,12 @@
 
 
 ## 🛠️ Tech Stack
-**HTML5** – Utilized semantic markup to ensure a highly accessible for the 10×10 coordinate grids and interactive UI components.
-**CSS3** – Implemented modern layout techniques including Flexbox and CSS Grid, utilizing Custom Properties (Variables) for a maintainable and responsive design across all device sizes.
-**JavaScript (ES6+)** – Engineered the core game engine using Modular JS. Leveraged advanced concepts like ES6 Classes and Array methods to manage game logic, AI behaviour, and DOM manipulation.
-**Webpack** – Configured a custom build pipeline to bundle modules, manage assets, and utilize Loaders/Plugins for an optimized production-ready distribution.
-**Jest** – Integrated a robust automated testing suite. Followed a TDD (Test-Driven Development) workflow to validate the integrity of the Ship and Gameboard logic before UI integration.
-**ESLint** – Enforced high-quality code standards and consistent style guides, ensuring the codebase remains clean, readable, and free of common syntax anti-patterns.
+- **HTML5** – Utilized semantic markup to ensure a highly accessible for the 10×10 coordinate grids and interactive UI components.
+- **CSS3** – Implemented modern layout techniques including Flexbox and CSS Grid, utilizing Custom Properties (Variables) for a maintainable and responsive design across all device sizes.
+- **JavaScript (ES6+)** – Engineered the core game engine using Modular JS. Leveraged advanced concepts like ES6 Classes and Array methods to manage game logic, AI behaviour, and DOM manipulation.
+- **Webpack** – Configured a custom build pipeline to bundle modules, manage assets, and utilize Loaders for an optimized production-ready distribution.
+- **Jest** – Integrated a robust automated testing suite. Followed a TDD (Test-Driven Development) workflow to validate the integrity of the Battleship and Gameboard logic before UI integration.
+- **ESLint** – Enforced high-quality code standards and consistent style guides, ensuring the codebase remains clean, readable, and free of common syntax anti-patterns.
 
 ## 🧠 Architecture
 
