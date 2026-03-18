@@ -78,7 +78,9 @@ do {
     y = Math.floor(Math.random() * 10);
 } while (this.player.gameboard.board[x][y] === 'hit' || this.player.gameboard.board[x][y] === 'miss');
 ```
+
 The computer remains in Hunting Mode until a successful hit occurs, triggering a transition to Target Mode.
+
 2. **Target Mode**
     Once a hit is registered, the computer switches to Target Mode, concentrating attacks on the surrounding area.
     - Previous successful hits are stored in the `this.nextAttacks` array property.
@@ -88,7 +90,8 @@ const coordinates = [
     [lastHitX - 1, lastHitY], [lastHitX + 1, lastHitY],
     [lastHitX, lastHitY - 1], [lastHitX, lastHitY + 1]
 ];
-``` 
+```
+
 3. **Attack Anticipation and Tracking**
     When the attack is successful, the `attackCoordinate(x, y)` method processes hit result for the computer and the coordinate is pushed into the  `nextAttacks` stack so the computer can continue targeting the same ship on subsequent turns.
     - If the attack results in a hit, the coordinate is stored for future targeting.
@@ -99,7 +102,8 @@ if (hitSuccessful === 'hit') {
     this.nextAttacks.push([x, y]);
 }
 ```
-    Once the ship is sunk, `nextAttacks` is cleared and the computer switches back to Hunting Mode until the next hit. This follows a stack (FILO - First   In, Last Out) principle.
+Once the ship is sunk, `nextAttacks` is cleared and the computer switches back to Hunting Mode until the next hit. This follows a stack (FILO - First   In, Last Out) principle.
+
 4. **Valid Attack Check**
     Before committing to any coordinate, the algorithm must validate it to ensure:
     - It falls within the 10x10 grid and 
