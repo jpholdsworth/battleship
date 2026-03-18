@@ -78,7 +78,7 @@ do {
     y = Math.floor(Math.random() * 10);
 } while (this.player.gameboard.board[x][y] === 'hit' || this.player.gameboard.board[x][y] === 'miss');
 ```
-    The computer remains in Hunting Mode until a successful hit occurs, triggering a transition to Target Mode.
+The computer remains in Hunting Mode until a successful hit occurs, triggering a transition to Target Mode.
 2. **Target Mode**
     Once a hit is registered, the computer switches to Target Mode, concentrating attacks on the surrounding area.
     - Previous successful hits are stored in the `this.nextAttacks` array property.
