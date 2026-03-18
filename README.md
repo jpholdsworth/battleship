@@ -68,7 +68,8 @@
 ### AI: Hunt & Target Algorithm
 The AI module controls the computer's decision making. It implements a *Hunt & Target strategy*, allowing the AI to anticipate future coordinates once a player's ship has been hit and efficiently locate the remaining parts of the ship.
 1. **Hunting Mode**
-    At the start of the game, the computer fires at a random cell using a `do... while` loop that keeps generating coordinates until it finds a coordinate that hasn't already been attacked.
+
+   At the start of the game, the computer fires at a random cell using a `do... while` loop that keeps generating coordinates until it finds a coordinate that hasn't already been attacked.
     - A random coordinate is generated.
     - The algorithm ensures the coordinate has not been previously attacked.
     - This enables efficient board exploration until a player's ship is discovered.
@@ -82,7 +83,8 @@ do {
 The computer remains in Hunting Mode until a successful hit occurs, triggering a transition to Target Mode.
 
 2. **Target Mode**
-    Once a hit is registered, the computer switches to Target Mode, concentrating attacks on the surrounding area.
+
+   Once a hit is registered, the computer switches to Target Mode, concentrating attacks on the surrounding area.
     - Previous successful hits are stored in the `this.nextAttacks` array property.
     - The computer calculates and attempts attacks on adjacent coordinates (up, down, left, right) of the last successful hit.
 ```js
@@ -93,7 +95,8 @@ const coordinates = [
 ```
 
 3. **Attack Anticipation and Tracking**
-    When the attack is successful, the `attackCoordinate(x, y)` method processes hit result for the computer and the coordinate is pushed into the  `nextAttacks` stack so the computer can continue targeting the same ship on subsequent turns.
+
+   When the attack is successful, the `attackCoordinate(x, y)` method processes hit result for the computer and the coordinate is pushed into the  `nextAttacks` stack so the computer can continue targeting the same ship on subsequent turns.
     - If the attack results in a hit, the coordinate is stored for future targeting.
     - Else, the coordinate will be ignored and the computer will use the next available coordinate in the `nextAttacks` stack.
 ```js
@@ -105,7 +108,8 @@ if (hitSuccessful === 'hit') {
 Once the ship is sunk, `nextAttacks` is cleared and the computer switches back to Hunting Mode until the next hit. This follows a stack (FILO - First   In, Last Out) principle.
 
 4. **Valid Attack Check**
-    Before committing to any coordinate, the algorithm must validate it to ensure:
+
+   Before committing to any coordinate, the algorithm must validate it to ensure:
     - It falls within the 10x10 grid and 
     - It hasn't already been attacked previously.
 ```js
