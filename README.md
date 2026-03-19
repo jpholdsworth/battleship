@@ -78,8 +78,41 @@ The bundled output is written to `/dist`. Open `dist/index.html` in your browser
 npm run deploy
 ```
 
-## ⚡Usage
+## ⚡ Usage
 
+### 🎮 How to Play
+1. **Prepare Your Fleet**
+   - **Manual Setup** - Drag and drop your ships onto the 10×10 grid.
+   - **Randomise** - Click the **Randomise** button to automatically position ships.
+   - **Rotate** - Click a ship to toggle between *horizontal* and *vertical* orientation.
+   - *Note: Ships cannot overlap or be placed outside the grid.*
+
+2. **Begin the Battle**
+   - Click a cell on the enemy (hidden) grid to launch an attack.
+   - **Hit** - An explosion with a grey background indicates a successful strike.
+   - **Miss** - A white dot indicates open water.
+
+3. **Compete Against the Computer**
+   - After your move, the computer immediately takes its turn.
+   - The computer follows a *Hunt & Target strategy*:
+     - **Hunt:** Fires randomly to locate ships.
+     - **Target:** Once a ship is hit, attacks adjacent cells until the ship is sunk.
+
+4. **Sink the Enemy Fleet**
+   - Players alternate turns throughout the game.
+   - A ship is officially *sunk* when all of its coordinates have been hit.
+
+5. **Win Condition**
+   - The first player to destroy all **five ships** wins the game.
+
+---
+
+### 🖱️ Controls
+- **Mouse Click** - Select a coordinate to attack.
+- **Restart** - Click the `Restart` button to begin a new game.
+
+> [!TIP]
+> No installation is required when using the live demo — simply open the game in your browser.
 
 ## 🛠️ Tech Stack
 - **HTML5** – Utilized semantic markup to ensure a highly accessible for the 10×10 coordinate grids and interactive UI components.
