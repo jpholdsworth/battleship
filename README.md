@@ -48,10 +48,31 @@
 
 ## 🚀 Getting Started
 **Prerequisites**
-
+- Node.js (14v+)
+- npx (included with Node.js)
 
 ### Installation & Setup
+1. Clone the repository
+```bash
+git clone https://github.com/jpholdsworth/battleship.git
+cd battleship
+```
 
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Build the project
+```bash
+npx webpack
+```
+The bundled output is written to `/dist`. Open `dist/index.html` in your browser to play.
+
+4. Deploy to Github Pages *(optional)*
+```bash
+npm run deploy
+```
 
 ## ⚡Usage
 
