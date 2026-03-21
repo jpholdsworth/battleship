@@ -31,8 +31,8 @@ Play the game here:
 
 ## 📑 Table of Contents
 - [The Vision](#-the-vision)
-- [UI/UX](#-uiux)
 - [Features](#-features)
+- [UI/UX](#-uiux)
 - [Getting Started](#-getting-started)
 - [Usage](#-usage)
 - [Tech Stack](#-tech-stack)
@@ -44,11 +44,39 @@ Play the game here:
 ## 🎯 The Vision
 
 
-## 🎨 UI/UX 
-
-
 ## ✨ Features
 
+## 🎨 UI/UX 
+The interface recreates the classic Battleship experience with a modern, browser-friendly design focused on clarity, visual feedback, and strategic gameplay.
+
+### Design Principles
+- **Clarity First** — visually distinct player and enemy boards ensure the game state is readable at a glance
+- **Immediate Feedback** — visual responses communicate the outcome of every action
+- **Minimal Distractions** — a clean layout keeps focus on gameplay, with UI elements that guide rather than overwhelm
+
+### Grid Interaction
+- Classic 10×10 coordinate grids replicate traditional gameplay
+- Interactive hover and click states improve usability
+- Visual indicators:
+  - 💥 **Hit** — explosion marker displayed on a grey background
+  - ⚪ **Miss** — water impact indicator displayed on a blue background
+
+### Ship Placement
+- Drag-and-drop fleet preparation
+- Ship rotation (horizontal / vertical)
+- Randomise option for quick setup
+- Automatic validation prevents invalid placement
+
+### Gameplay Experience
+- Turn-based flow clearly communicated at each stage
+- Instant AI responses maintain pacing and momentum
+- Ships visually indicate when fully sunk
+ 
+### Responsive Design
+- Built using Flexbox and CSS Grid for consistent layout behaviour
+- Interface adapts across desktop, tablet, and mobile while preserving grid alignment and usability
+
+The UI prioritises fast interaction, clear communication of game state, and an accessible gameplay loop, resulting in a familiar yet modern Battleship experience that feels responsive, strategic, and easy to learn.
 
 ## 🚀 Getting Started
 **Prerequisites**
@@ -182,7 +210,11 @@ validAttack(x, y) {
 This simple yet powerful algorithm balances exploration and attack mode, enabling the computer to efficiently discover ships while aggressively completing confirmed targets, resulting in a more strategic and human-like opponent.
 
 ## 🧩 Development Principles
-
+- **Modular Design** - Each JavaScript module has a single responsibility, making the code easier to understand, test, and extend.
+- **Separation of Concerns** - AI handles decision-making, Gameboard manages state and gameplay, and the UI renders the game, avoiding tight coupling between logic and presentation.
+- **Test-Driven Development (TDD)** - Core game logic was implemented and verified with automated Jest tests before UI integration, ensuring correctness at every stage.
+- **Reusable Validation Logic** - Shared coordinate validation across Gameboard and Player reduces duplication and keeps placement and attack-checking consistent throughout the codebase.
+- **Performance-Oriented** - The AI’s validAttack check runs in O(1) time by reading directly from board state instead of searching previous moves, enabling smooth gameplay even with multiple state changes per turn.
 
 ## 🧪 Testing
 The project follows a **Test-Driven Development (TDD)** workflow using **Jest** to validate the core game logic before integrating the UI layer.
@@ -215,3 +247,17 @@ npm test
 - Validates player interactions with the gameboard.
 
 ## 🔮 Future Improvements
+The following enhancements are planned to enrich gameplay, improve user experience, and increase technical capabilities of the Battleship application:
+- [ ] **Smarter AI Behaviour**:
+    - Implement probability-based targeting to create a more challenging opponent.
+- [ ] **Difficulty Levels**:
+    - Easy - AI performs fully randomised attacks.
+    - Medium - Hunt & Target strategy *(current implementation)*.
+    - Hard - Probability-driven targeting system for advanced decision-making.
+- [ ] **Improved Game Feedback**:
+    - Optional audio feedback for hits, misses, and ship destruction.
+    - Enhanced visual cues for turn transitions.
+    - Animations when ships are fully sunk.
+- [ ] **Multiplayer Mode**:
+    - Local two-player mode on a single device.
+    - Potential online multiplayer implementation.
