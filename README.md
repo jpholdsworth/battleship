@@ -42,9 +42,23 @@ Play the game here:
 
 
 ## 🎯 The Vision
+This project is a browser-based implementation of the classic strategy game Battleship. Its goals are to:
 
+- **Engage Players** - Offer an interactive way to play against an intelligent AI opponent.
+- **Showcase Architecture** - Demonstrate a modular JavaScript design that cleanly separates game logic, AI behaviour, and UI rendering.
+- **Dynamic Mechanics** - Implement complex state management for turn-taking, ship destruction, and real-time grid updates.
+- **Professional Tooling** - Serve as a technical case study for Test-Driven Development (TDD) with Jest and optimized bundling with Webpack.
+
+This project balances challenging AI gameplay with clean, maintainable code, showing how classic mechanics can be rebuilt with modern programming practices.
 
 ## ✨ Features
+- **Hunt & Target AI** - The computer alternates between random attacks and focused targeting once a ship is hit.
+- **Drag-and-Drop Ship Placement** - Manually position ships or use the Randomise button for quick setup.
+- **Ship Rotation** - Rotate ships horizontally or vertically before deployment.
+- **Visual Feedback** - Clear indicators for hits (💥) and misses (⚪) ensure players always know the outcome of each turn.
+- **Responsive Design** - Works seamlessly across desktop, tablet, and mobile devices.
+- **Reset & Replay** - Restart the game at any time without refreshing the browser.
+- **Tested Core Logic** - Ships, gameboards, and player mechanics are fully verified with Jest for reliability.
 
 ## 🎨 UI/UX 
 The interface recreates the classic Battleship experience with a modern, browser-friendly design focused on clarity, visual feedback, and strategic gameplay.
@@ -164,7 +178,7 @@ src/
 ├── /modules    # Core game logic with no DOM dependencies
 │   ├── ai.js           # Computer decision-making using Hunt & Target algorithm
 │   ├── battleship.js   # Ship entity - tracks hits, sunk status and orientation
-│   ├── gameboard.js    # 10x10 grid - ship placement, attack registeration and validation
+│   ├── gameboard.js    # 10x10 grid - ship placement, attack registration and validation
 │   └── player.js       # Player entity - manages ship and pass on attacks to Gameboard
 ├── /test   # Jest unit tests for core game logic
 │   ├── battleship.test.js
@@ -178,7 +192,7 @@ src/
 - **`gameboard.js`** - Manages the 10×10 grid. Handles ship placement with bounds and overlap validation, registers attacks, and tracks previously targeted coordinates.  
 - **`player.js`** - Represents a human player. Manages the fleet and delegates attacks to the `Gameboard`, keeping player state separate from board logic.  
 - **`ai.js`** - Controls the computer opponent using a Hunt & Target strategy, switching between random fire and focused targeting based on hit results.  
-- **`gamemanager.js`** - Orchestrates game flow: turn order, player and AI moves, start/reset actions, and win detection. Simulates AI thinking with a randomized delay.  
+- **`gamemanager.js`** - Orchestrates game flow: turn order, player and AI moves, start/reset actions, and win detection. Simulates AI thinking with a randomised delay.  
 - **`userinterface.js`** - Handles all DOM interaction: renders grids, updates cell states (hit, miss, ship), manages drag-and-drop and rotation, controls buttons, and displays messages.
 
 ### 🗝️ Key Design Decisions
@@ -297,3 +311,9 @@ The following enhancements are planned to enrich gameplay, improve user experien
 - [ ] **Multiplayer Mode**:
     - Local two-player mode on a single device.
     - Potential online multiplayer implementation.
+
+## ⚡ Final Note
+Challenge the AI, sink your opponent’s fleet, and experience Battleship reimagined for the modern web—fun, strategic, and fully responsive!
+
+## 📜 License
+This project is licensed under the [MIT License](https://mit-license.org/).
