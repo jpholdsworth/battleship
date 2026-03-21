@@ -84,6 +84,9 @@ The UI prioritises fast interaction, clear communication of game state, and an a
 - npx (included with Node.js)
 
 ### Installation & Setup
+> [!TIP]
+> No installation is required when using the live demo — simply open the game in your browser.
+
 1. Clone the repository
 ```bash
 git clone https://github.com/jpholdsworth/battleship.git
@@ -138,9 +141,6 @@ npm run deploy
 ### 🖱️ Controls
 - **Mouse Click** - Select a coordinate to attack.
 - **Restart** - Click the `Restart` button to begin a new game.
-
-> [!TIP]
-> No installation is required when using the live demo — simply open the game in your browser.
 
 ## 🛠️ Tech Stack
 - **HTML5** – Utilized semantic markup to ensure a highly accessible for the 10×10 coordinate grids and interactive UI components.
