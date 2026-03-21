@@ -31,8 +31,8 @@ describe('Gameboard class', () => {
     });
 
     test('a user tries to place a ship outside of board', () => {
-        expect(() => gameboard.placeShip(fakeBattleship, 9, 0, 'xAxis')).toThrow('Ship is out of bounds');
-        expect(() => gameboard.placeShip(fakeBattleship, 0, 9, 'yAxis')).toThrow('Ship is out of bounds');
+        expect(() => gameboard.placeShip(fakeBattleship, 0, 9, 'xAxis')).toThrow('Ship is out of bounds');
+        expect(() => gameboard.placeShip(fakeBattleship, 9, 0, 'yAxis')).toThrow('Ship is out of bounds');
     });
 
     test('attackCoordinate method records a miss', () => {
