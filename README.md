@@ -10,7 +10,7 @@ Play the game here:
 ![Webpack](https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=webpack&logoColor=black)
 ![Jest](https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=99425B)
 
-![Responsive of Battleship](./doc/screenshot.png)
+![Responsive of Battleship](/doc/screenshot.png)
 
 ## Introduction
 **Battleship** is an iconic strategy game for two players (or player vs AI) where the objective is to sink all of your opponent's ships before they sink yours. 
@@ -112,28 +112,28 @@ npm run deploy
 ## ⚡ Usage
 
 ### 🎮 How to Play
-1. **Prepare Your Fleet**
+1. 🚢 **Prepare Your Fleet**
    - **Manual Setup** - Drag and drop your ships onto the 10×10 grid.
    - **Randomise** - Click the **Randomise** button to automatically position ships.
    - **Rotate** - Click a ship to toggle between *horizontal* and *vertical* orientation.
    - *Note: Ships cannot overlap or be placed outside the grid.*
 
-2. **Begin the Battle**
+2. 💥 **Begin the Battle**
    - Click a cell on the enemy (hidden) grid to launch an attack.
    - **Hit** - An explosion with a grey background indicates a successful strike.
    - **Miss** - A white dot indicates open water.
 
-3. **Compete Against the Computer**
+3. 🤖 **Compete Against the Computer**
    - After your move, the computer immediately takes its turn.
    - The computer follows a *Hunt & Target strategy*:
      - **Hunt:** Fires randomly to locate ships.
      - **Target:** Once a ship is hit, attacks adjacent cells until the ship is sunk.
 
-4. **Sink the Enemy Fleet**
+4. 🎯 **Sink the Enemy Fleet**
    - Players alternate turns throughout the game.
    - A ship is officially *sunk* when all of its coordinates have been hit.
 
-5. **Win Condition**
+5. 🏆 **Win Condition**
    - The first player to destroy all **five ships** wins the game.
 
 ---
@@ -151,7 +151,43 @@ npm run deploy
 - **ESLint** – Enforced high-quality code standards and consistent style guides, ensuring the codebase remains clean, readable, and free of common syntax anti-patterns.
 
 ## 🧠 Architecture
-### AI: Hunt & Target Algorithm
+The Battleship application follows a modular JavaScript architecture to separate game logic, AI behaviour and DOM manipulations for presentation, maintainability and testability. The codebase is organised into different directories, each with a distinct purpose.
+
+```
+src/
+├── /dom    # DOM manipulation and UI interaction
+│   ├── gamemanager.js      # Orchestrates game flow, turn logic and win detection
+│   ├── userinterface.js    # Renders grid, handles drag-and-drop and DOM updates    
+│   └── webpage.js          # Generate a static footer section
+├── /fonts
+├── /image
+├── /modules    # Core game logic with no DOM dependencies
+│   ├── ai.js           # Computer decision-making using Hunt & Target algorithm
+│   ├── battleship.js   # Ship entity - tracks hits, sunk status and orientation
+│   ├── gameboard.js    # 10x10 grid - ship placement, attack registeration and validation
+│   └── player.js       # Player entity - manages ship and pass on attacks to Gameboard
+├── /test   # Jest unit tests for core game logic
+│   ├── battleship.test.js
+│   ├── gameboard.test.js
+│   └── player.test.js
+└── index.js    # Entry point - initialises GameManager and starts the game
+```
+
+### 📦 Core Modules
+- **`battleship.js`** - Defines ship objects with `length`, `hitCount`, `sunk` state, and `axis`. Registers hits and determines when a ship is fully sunk.  
+- **`gameboard.js`** - Manages the 10×10 grid. Handles ship placement with bounds and overlap validation, registers attacks, and tracks previously targeted coordinates.  
+- **`player.js`** - Represents a human player. Manages the fleet and delegates attacks to the `Gameboard`, keeping player state separate from board logic.  
+- **`ai.js`** - Controls the computer opponent using a Hunt & Target strategy, switching between random fire and focused targeting based on hit results.  
+- **`gamemanager.js`** - Orchestrates game flow: turn order, player and AI moves, start/reset actions, and win detection. Simulates AI thinking with a randomized delay.  
+- **`userinterface.js`** - Handles all DOM interaction: renders grids, updates cell states (hit, miss, ship), manages drag-and-drop and rotation, controls buttons, and displays messages.
+
+### 🗝️ Key Design Decisions
+- **Class-based entities** — `Ship`, `Gameboard`, and `Player` are ES6 classes. Each encapsulates its own state and exposes a focused public interface, making them easy to instantiate, compose, and test in isolation.
+- **Logic isolated from the DOM** — core classes carry zero DOM dependencies. They operate purely on data, so Jest can exercise them without a browser environment.
+- **Hunt & Target AI** - The AI queues adjacent coordinates after a hit and clears the queue once the ship is sunk, switching between exploration and focused targeting for human-like behaviour.
+- **Modular and maintainable** - Each module has a single responsibility, making the code easier to understand, test, and extend.
+
+### 🤖 AI: Hunt & Target Algorithm
 The AI module controls the computer's decision making. It implements a *Hunt & Target strategy*, allowing the AI to anticipate future coordinates once a player's ship has been hit and efficiently locate the remaining parts of the ship.
 1. **Hunting Mode**
 
