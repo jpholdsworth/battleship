@@ -31,8 +31,8 @@ Play the game here:
 
 ## 📑 Table of Contents
 - [The Vision](#-the-vision)
-- [Features](#-features)
 - [UI/UX](#-uiux)
+- [Features](#-features)
 - [Getting Started](#-getting-started)
 - [Usage](#-usage)
 - [Tech Stack](#-tech-stack)
@@ -185,6 +185,33 @@ This simple yet powerful algorithm balances exploration and attack mode, enablin
 
 
 ## 🧪 Testing
+The project follows a **Test-Driven Development (TDD)** workflow using **Jest** to validate the core game logic before integrating the UI layer.
 
+Unit tests focus on validating game mechanics independently from DOM rendering, allowing logic to remain predictable, maintainable and easy to refactor. Tests are located in `src/test/`.
+
+### 📊 Test Results
+![Test results](./doc/tests-screenshot.png)
+
+### ▶️ Running Tests
+Run the full test suite:
+```bash
+npm test
+```
+
+### ✅ Tested Modules
+`battleship.js`:
+- Verifies ship objects are initialised with correct properties.
+- Increments the ship’s `hitCount` when a successful hit occurs.
+- Determines when a ship is sunk by comparing `hitCount` against ship `length`.
+
+`gameboard.js`:
+- Validates ship placement on both valid and invalid coordinates.
+- Prevents overlapping ship placement.
+- Records attacks on individual cells.
+- Tracks previously targeted coordinates to prevent duplicate attacks.
+
+`player.js`:
+- Ensures ships are placed on the intended coordinates.
+- Validates player interactions with the gameboard.
 
 ## 🔮 Future Improvements
