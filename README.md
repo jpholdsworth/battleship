@@ -9,6 +9,7 @@ Play the game here:
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Webpack](https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=webpack&logoColor=black)
 ![Jest](https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=99425B)
+![Status](https://img.shields.io/badge/status-live-brightgreen?style=for-the-badge)
 
 ![Responsive of Battleship](/doc/screenshot.png)
 
