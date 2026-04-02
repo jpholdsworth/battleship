@@ -317,3 +317,11 @@ Challenge the AI, sink your opponent’s fleet, and experience Battleship reimag
 
 ## 📜 License
 This project is licensed under the [MIT License](https://mit-license.org/).
+
+---
+
+<div align="center">
+**Made with ❤️ and ☕ by Jacob Holdsworth.**
+    
+[👆 Back to Top](#-battleship)
+</div>
